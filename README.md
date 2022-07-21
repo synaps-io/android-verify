@@ -53,7 +53,7 @@ dependencies {
 ```
 
 **Second,** you need to launch synaps by providing the `sessionid` of the user:
-
+### Kotlin
 ```kotlin
 synaps = findViewById<SynapsIndividualVerify>(R.id.synaps);
  try {
@@ -65,23 +65,46 @@ synaps = findViewById<SynapsIndividualVerify>(R.id.synaps);
         SYNAPS_REQUEST_CAMERA_PERMISSION_CODE);
 }
 ```
-
+### Java
+```java
+synapsIndividualVerify = findViewById(R.id.synaps);
+try {
+    synapsIndividualVerify.launch(SESSION_ID);
+} catch (CameraAccessException e) {
+    ActivityCompat.requestPermissions(this,new String[] { Manifest.permission.CAMERA}, 10);
+}
+```
 **Third**, you need to need to listen `setOnReadyListener` to listen when the page is fully loaded.
 
+### Kotlin
 ```kotlin
 synaps.setOnReadyListener(OnReadyListener {
  
 })
 ```
+### Java
+
+```java
+synapsIndividualVerify.setOnReadyListener(() -> {
+    
+});
+```
 
 **Forth**, you need to need to listen `setOnFinishListener` to listen when the user finished verification.
 
+### Kotlin
 ```kotlin
 synaps.setOnFinishListener(OnFinishListener {
    
 })
 ```
+### Java
 
+```java
+synapsIndividualVerify.setOnReadyListener(() -> {
+    
+});
+```
 ### Attributes list
 
 | Attribute name          | Attribute type                                                                                           | Default | Required | Description                                                                   |
